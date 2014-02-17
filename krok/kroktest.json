@@ -1,0 +1,26 @@
+[
+{
+  "pk": 1, 
+  "model": "kroktest.gin", 
+  "fields": {
+    "question": "123", 
+    "ansA": "1", 
+    "ansB": "2", 
+    "ansC": "3", 
+    "ansD": "4", 
+    "ansE": "5"
+  }
+},
+{
+  "pk": 2, 
+  "model": "kroktest.gin", 
+  "fields": {
+    "question": "11111", 
+    "ansA": "1", 
+    "ansB": "2", 
+    "ansC": "3", 
+    "ansD": "4", 
+    "ansE": "5"
+  }
+}
+]

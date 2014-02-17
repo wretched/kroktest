@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load mytags %}
+{% block content %}
+<form method="post" action="../results/">
+{% csrf_token %}
+    {% for q in quest %}
+        {% with ind=forloop.counter0 %}
+            {% with multi=ind|mult:5 %}
+                <b>{{q.question}}</b>
+                <br>
+                {% with ansi=multi|add:0 %}
+                        <input type="radio" name = "{{ind}}" value="{{quest_numbers|get:ind}}_{{answers|get:ansi}}"> {{variants|get:ansi}} <br>
+                {% endwith %}
+                <br>
+                {% with ansi=multi|add:1 %}
+                        <input type="radio" name = "{{ind}}" value="{{quest_numbers|get:ind}}_{{answers|get:ansi}}"> {{variants|get:ansi}} <br>
+                {% endwith %}
+                <br>
+                {% with ansi=multi|add:2 %}
+                        <input type="radio" name = "{{ind}}" value="{{quest_numbers|get:ind}}_{{answers|get:ansi}}"> {{variants|get:ansi}} <br>
+                {% endwith %}
+                <br>
+                {% with ansi=multi|add:3 %}
+                        <input type="radio" name = "{{ind}}" value="{{quest_numbers|get:ind}}_{{answers|get:ansi}}"> {{variants|get:ansi}} <br>
+                {% endwith %}
+                <br>
+                {% with ansi=multi|add:4 %}
+                        <input type="radio" name = "{{ind}}" value="{{quest_numbers|get:ind}}_{{answers|get:ansi}}"> {{variants|get:ansi}} <br>
+                {% endwith %}
+            {% endwith %}
+        {% endwith %}
+        <hr>
+    {% endfor %}
+<input type="submit" value="Отправить">
+</form>
+{% endblock %}

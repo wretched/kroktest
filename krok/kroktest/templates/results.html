@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load mytags %}
+{% block content %}
+<form method="post" action="../">
+{% csrf_token %}
+<table cellspacing="0" cellpadding="0">
+{% for q in quest%}
+{% with ind=forloop.counter0 %}
+    {% with ua=usrans|get:ind %}
+        {% with aa=q.ansA %}
+            {% if ua = aa %}
+                <tr bgcolor="#80B280">
+            {% else %}
+                <tr bgcolor="#FFE6E6">
+            {% endif %}
+                <td width="45px"> <br> <input type="checkbox" name="{{quest_numbers|get:ind}}"/> </td>
+                <td>
+                    <b> <br> {{q.question}} </b>
+                </td>
+            </tr>
+            {% if ua = aa %}
+                <tr bgcolor="#80B280">
+            {% else %}
+                <tr bgcolor="#FFE6E6">
+            {% endif %}
+                <td colspan="2">
+                    
+                            {% if ua = aa %}
+                                {{ua}}
+                            {% else %}
+                                <font color="red">{{ua}}</font><br>{{aa}}
+                            {% endif %}
+                </td>
+            </tr>
+        {% endwith %}
+    {% endwith %}
+{% endwith %}
+{% endfor %}
+</table>
+<input type="submit" value="На старт">
+</form>
+{% endblock %}

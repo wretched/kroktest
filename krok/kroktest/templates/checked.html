@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load mytags %}
+{% block content %}
+    {% for q in quest_query %}
+        <b>{{q.question}}</b><br><br>
+        <font color="#006600">A - {{q.ansA}}</font><br>
+        B - {{q.ansB}}<br>
+        C - {{q.ansC}}<br>
+        D - {{q.ansD}}<br>
+        E - {{q.ansE}}<br>
+        <hr>
+    {% endfor %}
+    <button onclick='location.href="../"'>Назад</button>
+{% endblock %}
